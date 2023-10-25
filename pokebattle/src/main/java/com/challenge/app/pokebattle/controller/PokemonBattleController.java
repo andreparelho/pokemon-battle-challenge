@@ -1,6 +1,7 @@
 package com.challenge.app.pokebattle.controller;
 
 import com.challenge.app.pokebattle.service.BattleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class PokemonBattleController {
 
     private final BattleService battleService;
-
+    @Autowired
     public PokemonBattleController(BattleService battleService) {
         this.battleService = battleService;
     }

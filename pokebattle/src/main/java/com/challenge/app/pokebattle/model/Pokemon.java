@@ -1,7 +1,10 @@
 package com.challenge.app.pokebattle.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class Pokemon implements Serializable {
     private int id;
     private String name;
