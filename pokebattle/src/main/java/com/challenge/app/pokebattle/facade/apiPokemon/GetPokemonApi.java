@@ -1,10 +1,13 @@
 package com.challenge.app.pokebattle.facade.apiPokemon;
 
 import com.challenge.app.pokebattle.model.Pokemon;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Random;
 
+@Component
 public class GetPokemonApi {
 
     private Pokemon pokemon;
