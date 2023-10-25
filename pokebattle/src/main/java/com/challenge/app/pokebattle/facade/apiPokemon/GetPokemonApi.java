@@ -13,8 +13,8 @@ public class GetPokemonApi {
 
     public GetPokemonApi(Pokemon pokemon, RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
+        this.pokemon = pokemon;
     }
-
 
     public Pokemon getPokemon(){
         int randomId = new Random().nextInt(500);
