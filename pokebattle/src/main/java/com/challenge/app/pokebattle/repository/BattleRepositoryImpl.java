@@ -1,6 +1,6 @@
 package com.challenge.app.pokebattle.repository;
 
-import com.challenge.app.pokebattle.entity.Battle;
+import com.challenge.app.pokebattle.entity.BattleEntity;
 import com.challenge.app.pokebattle.repository.operations.BattleCrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +16,17 @@ public class BattleRepositoryImpl implements BattleRepository {
     }
 
     @Override
-    public Battle saveBattle(Battle battle) {
-        return this.battleCrudRepository.save(battle);
+    public BattleEntity saveBattle(BattleEntity battleEntity) {
+        return this.battleCrudRepository.save(battleEntity);
     }
 
     @Override
-    public List<Battle> listBattles() {
-        return (List<Battle>) battleCrudRepository.findAll();
+    public List<BattleEntity> listBattles() {
+        return (List<BattleEntity>) battleCrudRepository.findAll();
     }
 
     @Override
-    public Optional<Battle> listBattleById(Long id) {
+    public Optional<BattleEntity> listBattleById(Long id) {
         return battleCrudRepository.findById(id);
     }
 }

@@ -5,16 +5,16 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 
 @Component
-public class Pokemon implements Serializable {
-    private int id;
+public class PokemonModel implements Serializable {
+    private long id;
     private String name;
-    private String base_experience;
+    private Float base_experience;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -26,11 +26,11 @@ public class Pokemon implements Serializable {
         this.name = name;
     }
 
-    public String getBase_experience() {
+    public Float getBase_experience() {
         return base_experience;
     }
 
-    public void setBase_experience(String base_experience) {
+    public void setBase_experience(Float base_experience) {
         this.base_experience = base_experience;
     }
 }

@@ -1,18 +1,16 @@
 package com.challenge.app.pokebattle.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class Pokemon {
+@Table(name = "pokemons")
+public class PokemonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long pokemonId;
     private String name;
-    private float base_experience;
+    private Float base_experience;
 
     public Long getId() {
         return id;

@@ -1,12 +1,13 @@
 package com.challenge.app.pokebattle.controller;
 
-import com.challenge.app.pokebattle.entity.Battle;
+import com.challenge.app.pokebattle.entity.BattleEntity;
 import com.challenge.app.pokebattle.service.BattleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -20,20 +21,30 @@ public class PokemonBattleController {
     }
 
     @GetMapping("/create")
-    public ResponseEntity<String> createBattle() throws Exception {
-        if (this.battleService.create() != null){
-            return ResponseEntity.ok("Batalha criada com sucesso. " + this.battleService.create());
+    public ResponseEntity<Map<String, String>> createBattle() throws Exception {
+        Map<String, String> battle = this.battleService.create();
+        if (!battle.isEmpty()){
+            return ResponseEntity.ok(battle);
         }
-        return ResponseEntity.badRequest().body("Erro ao criar a batalha");
+        return ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/find-all-battles")
-    public ResponseEntity<List<Battle>> findAllBattles() throws Exception {
-        return ResponseEntity.ok(this.battleService.findAllBattles());
+    public ResponseEntity<List<BattleEntity>> findAllBattles() throws Exception {
+        List<BattleEntity> getAllBattles = this.battleService.findAllBattles();
+        if (!getAllBattles.isEmpty()){
+            return ResponseEntity.ok(this.battleService.findAllBattles());
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/find-by-id")
-    public ResponseEntity<Optional<Battle>> findById(@RequestBody Long id) throws Exception {
-        return ResponseEntity.ok(this.battleService.findById(id));
+    public ResponseEntity<Optional<BattleEntity>> findById(@RequestParam("id") Long id) throws Exception {
+        Optional<BattleEntity> getPokemon = this.battleService.findById(id);
+        if (getPokemon.isPresent()) {
+            return ResponseEntity.ok(this.battleService.findById(id));
+        }
+        return ResponseEntity.notFound().build();
     }
+
 }

@@ -1,6 +1,6 @@
 package com.challenge.app.pokebattle.repository;
 
-import com.challenge.app.pokebattle.entity.Pokemon;
+import com.challenge.app.pokebattle.entity.PokemonEntity;
 import com.challenge.app.pokebattle.repository.operations.PokemonCrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class PokemonRepositoryImpl implements PokemonRepository {
     }
 
     @Override
-    public Pokemon savePokemon(Pokemon pokemon) {
-        return pokemonCrudRepository.save(pokemon);
+    public PokemonEntity savePokemon(PokemonEntity pokemonEntity) {
+        return pokemonCrudRepository.save(pokemonEntity);
     }
 }
