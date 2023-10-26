@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Pokemon implements Serializable {
     private int id;
     private String name;
-    private double base_experience;
+    private String base_experience;
 
     public int getId() {
         return id;
@@ -26,11 +26,11 @@ public class Pokemon implements Serializable {
         this.name = name;
     }
 
-    public double getBase_experience() {
+    public String getBase_experience() {
         return base_experience;
     }
 
-    public void setBase_experience(double base_experience) {
+    public void setBase_experience(String base_experience) {
         this.base_experience = base_experience;
     }
 }
