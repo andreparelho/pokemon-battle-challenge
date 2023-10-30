@@ -33,7 +33,7 @@ public class PokemonBattleController {
     public ResponseEntity<List<BattleEntity>> findAllBattles() throws Exception {
         List<BattleEntity> getAllBattles = this.battleService.findAllBattles();
         if (!getAllBattles.isEmpty()){
-            return ResponseEntity.ok(this.battleService.findAllBattles());
+            return ResponseEntity.ok(getAllBattles);
         }
         return ResponseEntity.notFound().build();
     }
@@ -42,7 +42,7 @@ public class PokemonBattleController {
     public ResponseEntity<Optional<BattleEntity>> findById(@RequestParam("id") Long id) throws Exception {
         Optional<BattleEntity> getPokemon = this.battleService.findById(id);
         if (getPokemon.isPresent()) {
-            return ResponseEntity.ok(this.battleService.findById(id));
+            return ResponseEntity.ok(getPokemon);
         }
         return ResponseEntity.notFound().build();
     }
