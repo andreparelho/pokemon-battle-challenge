@@ -6,7 +6,7 @@ import com.challenge.app.pokebattle.httpClient.apiPokemon.GetPokemonApi;
 import com.challenge.app.pokebattle.model.PokemonModel;
 import com.challenge.app.pokebattle.repository.BattleRepository;
 import com.challenge.app.pokebattle.repository.PokemonRepository;
-import com.challenge.app.pokebattle.repository.changer.PokemonChangerState;
+import com.challenge.app.pokebattle.repository.converter.ConverterState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +20,14 @@ public class BattleServiceImpl implements BattleService {
     private final GetPokemonApi getPokemonApi;
     private final BattleRepository battleRepository;
     private final PokemonRepository pokemonRepository;
-    private final PokemonChangerState pokemonChangerState;
+    private final ConverterState converterState;
 
     @Autowired
-    public BattleServiceImpl(GetPokemonApi getPokemonApi, BattleRepository battleRepository, PokemonRepository pokemonRepository, PokemonChangerState pokemonChangerState) {
+    public BattleServiceImpl(GetPokemonApi getPokemonApi, BattleRepository battleRepository, PokemonRepository pokemonRepository, ConverterState converterState) {
         this.getPokemonApi = getPokemonApi;
         this.battleRepository = battleRepository;
         this.pokemonRepository = pokemonRepository;
-        this.pokemonChangerState = pokemonChangerState;
+        this.converterState = converterState;
     }
 
     @Override
@@ -37,8 +37,8 @@ public class BattleServiceImpl implements BattleService {
         PokemonModel firstPokemonModel = this.getPokemonApi.getPokemon();
         PokemonModel secondPokemonModel = this.getPokemonApi.getPokemon();
 
-        PokemonEntity firstPokemonEntity = this.pokemonChangerState.toEntity(firstPokemonModel);
-        PokemonEntity secondPokemonEntity = this.pokemonChangerState.toEntity(secondPokemonModel);
+        PokemonEntity firstPokemonEntity = this.converterState.toEntity(firstPokemonModel);
+        PokemonEntity secondPokemonEntity = this.converterState.toEntity(secondPokemonModel);
 
         this.pokemonRepository.savePokemon(firstPokemonEntity);
         this.pokemonRepository.savePokemon(secondPokemonEntity);
@@ -61,7 +61,7 @@ public class BattleServiceImpl implements BattleService {
            battle.put(draw, fightPokemons);
         }
 
-        BattleEntity battleEntity = this.pokemonChangerState.toBattle(firstPokemonEntity, secondPokemonEntity, pokemonWinnerName);
+        BattleEntity battleEntity = this.converterState.toBattle(firstPokemonEntity, secondPokemonEntity, pokemonWinnerName);
         this.battleRepository.saveBattle(battleEntity);
 
         return battle;

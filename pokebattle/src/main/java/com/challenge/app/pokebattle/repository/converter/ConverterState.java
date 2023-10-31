@@ -1,4 +1,4 @@
-package com.challenge.app.pokebattle.repository.changer;
+package com.challenge.app.pokebattle.repository.converter;
 
 import com.challenge.app.pokebattle.entity.BattleEntity;
 import com.challenge.app.pokebattle.entity.PokemonEntity;
@@ -6,7 +6,7 @@ import com.challenge.app.pokebattle.model.PokemonModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PokemonChangerState {
+public class ConverterState {
 
     public PokemonEntity toEntity(PokemonModel pokemonModel){
         PokemonEntity pokemonEntity = new PokemonEntity();
