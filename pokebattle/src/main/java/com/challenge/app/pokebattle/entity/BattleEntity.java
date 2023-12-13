@@ -2,6 +2,8 @@ package com.challenge.app.pokebattle.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "battles")
 public class BattleEntity {
@@ -46,5 +48,17 @@ public class BattleEntity {
 
     public void setWinner(String winner) {
         this.winner = winner;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BattleEntity that)) return false;
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getFirstPokemonEntity(), that.getFirstPokemonEntity()) && Objects.equals(getSecondPokemonEntity(), that.getSecondPokemonEntity()) && Objects.equals(getWinner(), that.getWinner());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstPokemonEntity(), getSecondPokemonEntity(), getWinner());
     }
 }
