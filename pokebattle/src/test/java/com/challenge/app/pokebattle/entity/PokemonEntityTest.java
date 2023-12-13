@@ -54,4 +54,25 @@ public class PokemonEntityTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("This test assert equals entity")
+    public void testEqualsAndHashCode(){
+        PokemonEntity pokemon = new PokemonEntity();
+        pokemon.setId(1L);
+        pokemon.setPokemonId(1L);
+        pokemon.setName("Pikachu");
+        pokemon.setBase_experience(123);
+        assertEquals(this.pokemonEntity, pokemon);
+    }
+    @Test
+    @DisplayName("This test assert equals entity")
+    public void testNotEqualsAndHashCode(){
+        PokemonEntity pokemon = new PokemonEntity();
+        pokemon.setId(2L);
+        pokemon.setPokemonId(1L);
+        pokemon.setName("Pikachu");
+        pokemon.setBase_experience(123);
+        assertNotEquals(this.pokemonEntity, pokemon);
+    }
 }
