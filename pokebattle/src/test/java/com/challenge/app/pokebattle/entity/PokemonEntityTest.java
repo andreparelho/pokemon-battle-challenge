@@ -66,7 +66,7 @@ public class PokemonEntityTest {
         assertEquals(this.pokemonEntity, pokemon);
     }
     @Test
-    @DisplayName("This test assert equals entity")
+    @DisplayName("This test assert not equals entity")
     public void testNotEqualsAndHashCode(){
         PokemonEntity pokemon = new PokemonEntity();
         pokemon.setId(2L);
