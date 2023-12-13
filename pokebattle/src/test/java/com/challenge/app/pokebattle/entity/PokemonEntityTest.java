@@ -13,12 +13,15 @@ public class PokemonEntityTest {
     @BeforeEach
     public void init(){
         this.pokemonEntity = new PokemonEntity();
+        this.pokemonEntity.setId(1L);
+        this.pokemonEntity.setPokemonId(1L);
+        this.pokemonEntity.setName("Pikachu");
+        this.pokemonEntity.setBase_experience(123);
     }
 
     @Test
     @DisplayName("This test should return a id when create entity")
     public void testGetId(){
-        this.pokemonEntity.setId(1L);
         long expected = 1;
         long actual = this.pokemonEntity.getId();
 
@@ -28,7 +31,6 @@ public class PokemonEntityTest {
     @Test
     @DisplayName("This test should return a pokemon id when create entity")
     public void testGetPokemonId(){
-        this.pokemonEntity.setPokemonId(1L);
         long expected = 1;
         long actual = this.pokemonEntity.getPokemonId();
 
@@ -38,7 +40,6 @@ public class PokemonEntityTest {
     @Test
     @DisplayName("This test should return a pokemon name when create entity")
     public void testGetName(){
-        this.pokemonEntity.setName("Pikachu");
         String expected = "Pikachu";
         String actual = this.pokemonEntity.getName();
 
@@ -48,7 +49,6 @@ public class PokemonEntityTest {
     @Test
     @DisplayName("This test should return a pokemon base experience when create entity")
     public void testGetBaseExperience(){
-        this.pokemonEntity.setBase_experience(123);
         Float expected = 123F;
         Float actual = this.pokemonEntity.getBase_experience();
 
