@@ -10,9 +10,12 @@ public class PokemonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "pokemon_id")
     private Long pokemonId;
+    @Column
     private String name;
-    private Float base_experience;
+    @Column(name = "base_experience")
+    private Float baseExperience;
 
     public Long getId() {
         return id;
@@ -38,23 +41,23 @@ public class PokemonEntity {
         this.name = name;
     }
 
-    public float getBase_experience() {
-        return base_experience;
+    public float getBaseExperience() {
+        return baseExperience;
     }
 
-    public void setBase_experience(float base_experience) {
-        this.base_experience = base_experience;
+    public void setBaseExperience(float baseExperience) {
+        this.baseExperience = baseExperience;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof PokemonEntity that)) return false;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getPokemonId(), that.getPokemonId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getBase_experience(), that.getBase_experience());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getPokemonId(), that.getPokemonId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getBaseExperience(), that.getBaseExperience());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getPokemonId(), getName(), getBase_experience());
+        return Objects.hash(getId(), getPokemonId(), getName(), getBaseExperience());
     }
 }

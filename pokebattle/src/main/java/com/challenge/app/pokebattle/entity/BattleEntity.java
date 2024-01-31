@@ -16,6 +16,7 @@ public class BattleEntity {
     @ManyToOne
     @JoinColumn(name = "second_pokemon_id")
     private PokemonEntity secondPokemonEntity;
+    @Column
     private String winner;
 
     public Long getId() {

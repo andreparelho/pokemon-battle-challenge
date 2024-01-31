@@ -7,6 +7,9 @@ import com.challenge.app.pokebattle.model.PokemonModel;
 import com.challenge.app.pokebattle.repository.BattleRepository;
 import com.challenge.app.pokebattle.repository.PokemonRepository;
 import com.challenge.app.pokebattle.repository.converter.ConverterState;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,7 @@ public class BattleServiceImpl implements BattleService {
     private final BattleRepository battleRepository;
     private final PokemonRepository pokemonRepository;
     private final ConverterState converterState;
+    private static final Logger logger = LoggerFactory.getLogger(BattleServiceImpl.class);
 
     @Autowired
     public BattleServiceImpl(GetPokemonApi getPokemonApi, BattleRepository battleRepository, PokemonRepository pokemonRepository, ConverterState converterState) {
@@ -32,6 +36,8 @@ public class BattleServiceImpl implements BattleService {
 
     @Override
     public Map<String, String> create() throws Exception {
+        logger.debug("initializing create method");
+
         Map<String, String> battle = new HashMap<>();
 
         PokemonModel firstPokemonModel = this.getPokemonApi.getPokemon();
@@ -56,24 +62,29 @@ public class BattleServiceImpl implements BattleService {
             battle.put(winner, secondPokemonModel.getName());
             pokemonWinnerName = secondPokemonModel.getName();
         } else {
-           String draw = "empate";
-           String fightPokemons = firstPokemonModel.getName() + ", " + secondPokemonModel.getName();
-           battle.put(draw, fightPokemons);
+            String draw = "empate";
+            String fightPokemons = firstPokemonModel.getName() + ", " + secondPokemonModel.getName();
+            battle.put(draw, fightPokemons);
         }
 
         BattleEntity battleEntity = this.converterState.toBattle(firstPokemonEntity, secondPokemonEntity, pokemonWinnerName);
         this.battleRepository.saveBattle(battleEntity);
 
+        logger.info("battle created with success");
         return battle;
     }
 
     @Override
     public List<BattleEntity> findAllBattles() throws Exception {
+        logger.debug("initializing find allBattles method");
+        logger.info("find all battle success");
         return this.battleRepository.listBattles();
     }
 
     @Override
     public Optional<BattleEntity> findById(Long id) throws Exception {
+        logger.debug("initializing findById method");
+        logger.info("find battle success");
         return battleRepository.listBattleById(id);
     }
 }

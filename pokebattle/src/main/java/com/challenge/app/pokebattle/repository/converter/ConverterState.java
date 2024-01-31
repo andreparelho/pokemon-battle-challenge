@@ -12,7 +12,7 @@ public class ConverterState {
         PokemonEntity pokemonEntity = new PokemonEntity();
         pokemonEntity.setPokemonId(pokemonModel.getId());
         pokemonEntity.setName(pokemonModel.getName());
-        pokemonEntity.setBase_experience(pokemonModel.getBase_experience());
+        pokemonEntity.setBaseExperience(pokemonModel.getBase_experience());
         return pokemonEntity;
     }
 
@@ -20,7 +20,7 @@ public class ConverterState {
         PokemonModel pokemonModel = new PokemonModel();
         pokemonModel.setId(pokemonEntity.getId());
         pokemonModel.setName(pokemonEntity.getName());
-        pokemonModel.setBase_experience(pokemonEntity.getBase_experience());
+        pokemonModel.setBase_experience(pokemonEntity.getBaseExperience());
         return pokemonModel;
     }
 
