@@ -16,7 +16,7 @@ public class PokemonEntityTest {
         this.pokemonEntity.setId(1L);
         this.pokemonEntity.setPokemonId(1L);
         this.pokemonEntity.setName("Pikachu");
-        this.pokemonEntity.setBase_experience(123);
+        this.pokemonEntity.setBaseExperience(123);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class PokemonEntityTest {
     @DisplayName("This test should return a pokemon base experience when create entity")
     public void testGetBaseExperience(){
         Float expected = 123F;
-        Float actual = this.pokemonEntity.getBase_experience();
+        Float actual = this.pokemonEntity.getBaseExperience();
 
         assertEquals(expected, actual);
     }
@@ -62,7 +62,7 @@ public class PokemonEntityTest {
         pokemon.setId(1L);
         pokemon.setPokemonId(1L);
         pokemon.setName("Pikachu");
-        pokemon.setBase_experience(123);
+        pokemon.setBaseExperience(123);
         assertEquals(this.pokemonEntity, pokemon);
     }
     @Test
@@ -72,7 +72,7 @@ public class PokemonEntityTest {
         pokemon.setId(2L);
         pokemon.setPokemonId(1L);
         pokemon.setName("Pikachu");
-        pokemon.setBase_experience(123);
+        pokemon.setBaseExperience(123);
         assertNotEquals(this.pokemonEntity, pokemon);
     }
 }

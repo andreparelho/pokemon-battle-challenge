@@ -23,12 +23,12 @@ public class BattleEntityTest {
         this.firstPokemon.setPokemonId(1L);
         this.firstPokemon.setName("Pikachu");
         this.firstPokemon.setPokemonId(1L);
-        this.firstPokemon.setBase_experience(1212);
+        this.firstPokemon.setBaseExperience(1212);
 
         this.secondPokemon.setPokemonId(2L);
         this.secondPokemon.setName("Articuno");
         this.secondPokemon.setPokemonId(45L);
-        this.secondPokemon.setBase_experience(5000);
+        this.secondPokemon.setBaseExperience(5000);
 
         this.battleEntity.setFirstPokemonEntity(this.firstPokemon);
         this.battleEntity.setFirstPokemonEntity(this.secondPokemon);
@@ -53,7 +53,7 @@ public class BattleEntityTest {
         expected.setPokemonId(1L);
         expected.setName("Pikachu");
         expected.setPokemonId(1L);
-        expected.setBase_experience(1212);
+        expected.setBaseExperience(1212);
 
         PokemonEntity actual = this.firstPokemon;
 
@@ -68,7 +68,7 @@ public class BattleEntityTest {
         expected.setPokemonId(2L);
         expected.setName("Articuno");
         expected.setPokemonId(45L);
-        expected.setBase_experience(5000);
+        expected.setBaseExperience(5000);
 
         PokemonEntity actual = this.secondPokemon;
 
